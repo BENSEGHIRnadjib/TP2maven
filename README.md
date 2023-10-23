@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/YVvOaTPu)
 
-TP 2 BENSEGHIR Nadjib Eddine Adib M1AMIS 22301396 20 https://github.com/BENSEGHIRnadjib/TP2maven
+TP 2 BENSEGHIR Nadjib Eddine Adib, M1AMIS, 22301396, 20 https://github.com/BENSEGHIRnadjib/TP2maven
 
 # TP Maven-JUnit
 L'objet de cet exercice est de réaliser une classe `ChaineCryptee` qui permettra de chiffrer/déchiffrer une chaîne de caractères (**composée de lettres majuscules et d'espace**).
