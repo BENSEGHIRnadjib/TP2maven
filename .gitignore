@@ -1,0 +1,20 @@
+# Fichiers et répertoires générés par Maven
+/target/
+*.iml
+
+# Fichiers de configuration d'IDE
+.idea/
+.vscode/
+
+# Fichiers d'indexation et de compilation
+*.class
+*.log
+
+# Fichiers de sauvegarde
+*~
+
+# Fichiers de configuration spécifiques à l'utilisateur (ex : .DS_Store pour macOS)
+.DS_Store
+
+# Fichiers de configuration de l'environnement (ex : .env)
+.env
