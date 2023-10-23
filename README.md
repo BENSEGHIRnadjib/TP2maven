@@ -1,4 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/YVvOaTPu)
+
+TP 2 BENSEGHIR Nadjib Eddine Adib M1AMIS 22301396
 # TP Maven-JUnit
 L'objet de cet exercice est de réaliser une classe `ChaineCryptee` qui permettra de chiffrer/déchiffrer une chaîne de caractères (**composée de lettres majuscules et d'espace**).
 Le chiffrement utilise une méthode par décalage.
@@ -36,9 +38,30 @@ Il pourra éventuellement être nécessaire de [configurer le proxy](http://mave
    
 1.  Examinez le projet Maven ainsi que le fichier de description et répondez aux questions suivantes :
     1.  Dans quel répertoire se trouvent les fichiers sources du projet ? Les sources des tests ?
-        Les fichiers sources principaux du projet sont situés dans le répertoire :
-        src/main/java
-        src/test/java
+    Les fichiers sources du projet sont répartis entre deux répertoires : le code source principal se trouve dans le dossier src/main/java/fr.uvsq.cprog.mvnjunit, tandis que les sources des tests se trouvent dans le répertoire src/test/java/fr.uvsq.cprog.mvnjunit.
+
+    Les coordonnées du projet sont définies dans le fichier pom.xml, à travers les balises groupId, artifactId et version :
+
+    groupId : fr.uvsq.cprog
+    artifactId : mvnjunit
+    version : 1.0-SNAPSHOT
+    La propriété project.build.sourceEncoding sert à spécifier l'encodage (charset) utilisé pour les fichiers sources du projet. Dans ce cas, l'encodage est défini comme UTF-8.
+
+    Les versions des sources Java et de la JVM sont définies dans les propriétés <maven.compiler.source> et <maven.compiler.target> :
+
+   maven.compiler.source : 1.7
+   maven.compiler.target : 1.7
+   La version de JUnit configurée est 4.11. La balise <scope> est définie comme "test", ce qui signifie que JUnit sera utilisé uniquement pour les tests unitaires pendant la phase de test de Maven. Voici l'exemple de la dépendance JUnit configurée dans le fichier pom.xml :
+
+   xml
+   Copy code
+   <dependency>
+   <groupId>junit</groupId>
+   <artifactId>junit</artifactId>
+   <version>4.11</version>
+   <scope>test</scope>
+   </dependency>
+    Cela signifie que JUnit 4.11 sera utilisé uniquement lors de l'exécution des tests unitaires et ne fera pas partie des dépendances du projet principal.
         
     1. Quelles sont les coordonnées du projet ?
         > 
@@ -76,15 +99,33 @@ Il pourra éventuellement être nécessaire de [configurer le proxy](http://mave
     1.  créer un `jar` du projet ?
         > Pour créer un fichier JAR à partir d'un projet Maven, vous pouvez utiliser la commande mvn package. Cette commande compile le projet et génère un fichier JAR dans le dossier 
           target, prêt à être utilisé ou distribué.
-        > 
+        
     1. lancer les tests ?
-        > RÉPONDRE ICI
+        > mvn test
     1. supprimer tous les fichiers issus de la compilation ?
-        > RÉPONDRE ICI
+        > mvn clean
+  
 1.  Ajoutez une classe `ChaineCryptee` et une classe `ChaineCrypteeTest` dans les répertoires et packages appropriés.
     Supprimez les classes d'exemple `App` et `AppTest`.
 1.  Énumérez une liste de cas de tests à réaliser en n'oubliant pas les cas d'erreur.
-    > RÉPONDRE ICI
+    > Cas de test pour crypte() :
+/ Crypter une chaîne vide avec un décalage nul.
+/ Crypter une chaîne non vide avec un décalage nul.
+/ Crypter une chaîne avec un décalage positif.
+/ Crypter une chaîne avec un décalage négatif.
+/ Crypter une chaîne contenant des caractères spéciaux (ignorer les caractères spéciaux).
+
+> Cas de test pour decrypte() :
+/ Décrypter une chaîne vide avec un décalage nul.
+/ Décrypter une chaîne non vide avec un décalage nul.
+/ Décrypter une chaîne avec un décalage positif.
+/ Décrypter une chaîne avec un décalage négatif.
+/ Décrypter une chaîne contenant des caractères spéciaux (ignorer les caractères spéciaux).
+/ Cas de test pour les méthodes de création (decrypt() et encrypt()).
+
+> Cas d'erreur :
+ Crypter ou décrypter une chaîne avec un décalage supérieur à 26.
+
 1.  Pour chaque cas de test,
     1. écrivez le test JUnit correspondant dans la classe de test,
     1. vérifiez qu’il échoue,
@@ -93,7 +134,9 @@ Il pourra éventuellement être nécessaire de [configurer le proxy](http://mave
     1. appliquez un étape de refactoring sur les tests et la classe si nécessaire.
 1.  Comment se comporte votre classe si la chaîne passée au constructeur est `null` ?
 Vous pouvez utiliser le débogueur pour identifier le problème (s'il y a un problème) au niveau de `crypte`.
-    > RÉPONDRE ICI
+    > if (string == null) {
+    return null;
+    }
     1. ajoutez un test pour prendre en compte la chaîne `null`,
     1. si nécessaire, modifiez la classe pour faire passer le test
 1. Changez la représentation interne de la classe : seule la chaîne cryptée est stockée (plus la chaîne en clair).
